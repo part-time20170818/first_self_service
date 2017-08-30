@@ -24,6 +24,24 @@ public class UserController {
 //        mav.addObject("user", user);
         return mav;    
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
     @RequestMapping(value="/test",method=RequestMethod.GET)    
     public String test(Model model,HttpServletRequest request){
