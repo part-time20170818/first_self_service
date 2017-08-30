@@ -2,6 +2,7 @@ package com.wr.controller;
 
 import com.wr.domain.User;
 import com.wr.service.UserService;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,6 +21,7 @@ import java.io.IOException;
 @Controller
 @RequestMapping(value = "/gateway", method = { RequestMethod.POST, RequestMethod.GET })
 public class GatewayController {
+    Logger logger =  Logger.getLogger(GatewayController. class );
 
     @Resource
     private UserService userService;
@@ -27,6 +29,8 @@ public class GatewayController {
     @ResponseBody
     @RequestMapping(value = "", method = { RequestMethod.POST, RequestMethod.GET })
     public ModelAndView gateway(HttpServletRequest bindingResult, HttpServletResponse response) throws ServletException, IOException {
+        logger.info("这是我的测试请你打印出来");
+        logger.error("这是error级别的日志打印");
         ModelAndView mav = new ModelAndView("test");
         User user = userService.selectUserById("1");
         mav.addObject("user", user);
