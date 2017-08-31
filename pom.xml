@@ -76,13 +76,18 @@
 		</dependency>
 
 		<!--spring单元测试依赖 -->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
 			<version>${spring.version}</version>
 			<scope>test</scope>
+		</dependency>-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version> 3.2.4.RELEASE  </version>
+			<scope>provided</scope>
 		</dependency>
-
 		<!--mybatis依赖 -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
@@ -108,7 +113,7 @@
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
-			<version>6.0</version>
+			<version>7.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- 上传文件需要的包 -->

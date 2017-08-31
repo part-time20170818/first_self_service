@@ -6,13 +6,13 @@ import com.wr.dao.UserDao;
 
 import javax.annotation.Resource;
 
-@Service  
+@Service("userService")
 public class UserServiceImpl implements UserService {
     @Resource
     private UserDao userDao;  
   
     public User selectUserById(String userId) {
         return userDao.selectUserById(userId);  
-          
+
     }  
 }
