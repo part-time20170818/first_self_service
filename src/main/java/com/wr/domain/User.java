@@ -39,4 +39,14 @@ public class User {
     public void setIp(String ip) {
         this.ip = ip;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId='" + userId + '\'' +
+                ", userName='" + userName + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", ip='" + ip + '\'' +
+                '}';
+    }
 }
