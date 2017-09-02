@@ -40,7 +40,7 @@ public class GatewayController {
         try {
             address = InetAddress.getLocalHost();
             user.setIp(address.getHostAddress());
-        } catch (UnknownHostException e) {
+        } catch (Exception e) {
             logger.info(e.getMessage());
 
         }
