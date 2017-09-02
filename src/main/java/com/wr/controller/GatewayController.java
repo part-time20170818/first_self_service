@@ -14,6 +14,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.InetAddress;
 
 /**
  * Created by xiewenge on 2017/7/21.
@@ -33,6 +34,8 @@ public class GatewayController {
         logger.error("这是error级别的日志打印");
         ModelAndView mav = new ModelAndView("test");
         User user = userService.selectUserById("1");
+        InetAddress address = InetAddress.getLocalHost();//获取的是本地的IP地址
+        user.setIp(address.getHostAddress());
         mav.addObject("user", user);
         return mav;
     }

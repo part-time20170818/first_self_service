@@ -5,6 +5,7 @@ public class User {
 	private String userId;
     private String userName;  
     private String userPassword;
+    private String ip;
 
 
     public String getUserId() {
@@ -29,6 +30,13 @@ public class User {
   
     public void setUserPassword(String userPassword) {  
         this.userPassword = userPassword;  
-    }  
-  
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
 }
