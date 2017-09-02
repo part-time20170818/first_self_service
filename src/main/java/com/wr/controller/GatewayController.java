@@ -34,7 +34,8 @@ public class GatewayController {
         logger.error("这是error级别的日志打印");
         ModelAndView mav = new ModelAndView("test");
         User user = userService.selectUserById("1");
-        InetAddress address = InetAddress.getLocalHost();//获取的是本地的IP地址
+        logger.info("user:"+user);
+        InetAddress address = InetAddress.getLocalHost();
         user.setIp(address.getHostAddress());
         mav.addObject("user", user);
         return mav;
