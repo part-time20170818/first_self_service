@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 /**
  * Created by xiewenge on 2017/7/21.
@@ -29,14 +30,21 @@ public class GatewayController {
 
     @ResponseBody
     @RequestMapping(value = "", method = { RequestMethod.POST, RequestMethod.GET })
-    public ModelAndView gateway(HttpServletRequest bindingResult, HttpServletResponse response) throws ServletException, IOException {
+    public ModelAndView gateway(HttpServletRequest bindingResult, HttpServletResponse response) {
         logger.info("这是我的测试请你打印出来");
         logger.error("这是error级别的日志打印");
         ModelAndView mav = new ModelAndView("test");
         User user = userService.selectUserById("1");
         logger.info("user:"+user);
-        InetAddress address = InetAddress.getLocalHost();
-        user.setIp(address.getHostAddress());
+        InetAddress address = null;
+        try {
+            address = InetAddress.getLocalHost();
+            user.setIp(address.getHostAddress());
+        } catch (UnknownHostException e) {
+            logger.info(e.getMessage());
+
+        }
+
         mav.addObject("user", user);
         return mav;
     }
