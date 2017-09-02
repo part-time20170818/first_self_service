@@ -15,7 +15,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.util.Enumeration;
 
 /**
  * Created by xiewenge on 2017/7/21.
@@ -38,8 +41,7 @@ public class GatewayController {
         logger.info("user:"+user);
         InetAddress address = null;
         try {
-            address = InetAddress.getLocalHost();
-            user.setIp(address.getHostAddress());
+           user.setIp(getAddress()+"");
         } catch (Exception e) {
             logger.info(e.getMessage());
 
@@ -48,5 +50,21 @@ public class GatewayController {
         mav.addObject("user", user);
         return mav;
     }
-
+    private InetAddress getAddress() {
+        try {
+            for (Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces(); interfaces.hasMoreElements();) {
+                NetworkInterface networkInterface = interfaces.nextElement();
+                if (networkInterface.isLoopback() || networkInterface.isVirtual() || !networkInterface.isUp()) {
+                    continue;
+                }
+                Enumeration<InetAddress> addresses = networkInterface.getInetAddresses();
+                if (addresses.hasMoreElements()) {
+                    return addresses.nextElement();
+                }
+            }
+        } catch (SocketException e) {
+            //logger.debug("Error when getting host ip address: <{}>.", e.getMessage());
+        }
+        return null;
+    }
 }
