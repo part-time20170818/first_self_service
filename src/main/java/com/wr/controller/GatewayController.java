@@ -46,7 +46,7 @@ public class GatewayController {
             logger.info(e.getMessage());
 
         }
-
+        logger.info("user:"+user.getIp());
         mav.addObject("user", user);
         return mav;
     }
