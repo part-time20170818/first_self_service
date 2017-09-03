@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>BOSS管理系统</title>
+        <script type="text/javascript" src="scripts/jquery.min.js"></script>
+        <script type="text/javascript" src="scripts/cookie_util.js"></script>
+        <link type="text/css" rel="stylesheet" media="all" href="styles/global.css" />
+        <link type="text/css" rel="stylesheet" media="all" href="styles/global_color.css" />
+        <script>
+            function login(){
+                $("#username_msg").html("");
+                $("#password_msg").html("");
+                $("#checknumber_msg").html("");
+                var username = $("#username").val();
+                var password = $("#password").val();
+                var checknumber = $("#checknumber").val();
+                var flag=true;
+                if(username==""){
+                    flag=false;
+                    $("#username_msg").html("用户名为空");
+                }
+                if(password==""){
+                    flag=false;
+                    $("#password_msg").html("密码为空");
+                }
+                if(!flag){
+                    $("#checknumber_get").click();
+                }
+                if(flag){
+                    $.ajax({
+                        url:"../user/login",
+                        type:"post",
+                        data:{"userName":username,"passWord":password,"checkNumber":checknumber},
+                        dataType:"json",
+                        success:function(result){
+                            if (result.code==003) {
+                                $("#password_msg").html(result.msg);
+                            }else if (result.code==004) {
+                                $("#checknumber_msg").html(result.msg);
+                            }else if (result.code==000) {
+                                addCookie("userId","1234",2);
+                               window.location.href="index.html";
+                            }
+
+                        },
+                        error:function() {
+                            $("#checknumber_get").click();
+
+                        }
+                    });
+                }
+
+            }
+        </script>
+    </head>
+    <body class="index">
+        <div class="login_box">
+            <table>
+                <tr>
+                    <td class="login_info">账号：</td>
+                    <td colspan="2"><input id='username'name="" type="text" class="width150" /></td>
+                    <td class="login_error_info"><span id="username_msg" class="required"></span></td>
+                </tr>
+                <tr>
+                    <td class="login_info">密码：</td>
+                    <td colspan="2"><input id='password' name="" type="password" class="width150" /></td>
+                    <td><span id="password_msg" class="required"></span></td>
+                </tr>
+                <tr>
+                    <td class="login_info">验证码：</td>
+                    <td class="width70"><input name="" id="checknumber" type="text" class="width80" /></td>
+                    <td ><img  src="../user" border="1" style="cursor:pointer;border-radius:3px;" id="checknumber_get"
+                               onclick="this.src='../user?'+Math.random();"/></td>
+                   <!-- <td><img src="images/valicode.jpg" alt="验证码" title="点击更换" /></td> -->
+                   <td><span id="checknumber_msg" class="required"></span></td>
+                </tr>            
+                <tr>
+                    <td></td>
+                    <td class="login_button" colspan="2">
+                        <a href="#" onclick="login()"><img src="images/login_btn.png" /></a>
+                    </td>    
+                  <!--  <td><span class="required">用户名或密码错误，请重试</span></td>-->
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
