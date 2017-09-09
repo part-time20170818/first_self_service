@@ -5,54 +5,9 @@
         <title>BOSS管理系统</title>
         <script type="text/javascript" src="scripts/jquery.min.js"></script>
         <script type="text/javascript" src="scripts/cookie_util.js"></script>
+        <script type="text/javascript" src="scripts/static.js"></script>
         <link type="text/css" rel="stylesheet" media="all" href="styles/global.css" />
         <link type="text/css" rel="stylesheet" media="all" href="styles/global_color.css" />
-        <script>
-            function login(){
-                $("#username_msg").html("");
-                $("#password_msg").html("");
-                $("#checknumber_msg").html("");
-                var username = $("#username").val();
-                var password = $("#password").val();
-                var checknumber = $("#checknumber").val();
-                var flag=true;
-                if(username==""){
-                    flag=false;
-                    $("#username_msg").html("用户名为空");
-                }
-                if(password==""){
-                    flag=false;
-                    $("#password_msg").html("密码为空");
-                }
-                if(!flag){
-                    $("#checknumber_get").click();
-                }
-                if(flag){
-                    $.ajax({
-                        url:"../user/login",
-                        type:"post",
-                        data:{"userName":username,"passWord":password,"checkNumber":checknumber},
-                        dataType:"json",
-                        success:function(result){
-                            if (result.code==003) {
-                                $("#password_msg").html(result.msg);
-                            }else if (result.code==004) {
-                                $("#checknumber_msg").html(result.msg);
-                            }else if (result.code==000) {
-                                addCookie("userId","1234",2);
-                               window.location.href="index.html";
-                            }
-
-                        },
-                        error:function() {
-                            $("#checknumber_get").click();
-
-                        }
-                    });
-                }
-
-            }
-        </script>
     </head>
     <body class="index">
         <div class="login_box">

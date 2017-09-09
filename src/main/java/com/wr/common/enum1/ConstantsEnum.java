@@ -8,7 +8,11 @@ public enum  ConstantsEnum {
     FAILURE("0001","失败"),
     HANDLING("0002", "处理中"),
     LOGIN_PASSWORD_ERROR("0003", "密码错误"),
-    LOGIN_CHECK_NUMBER_ERROR("0004", "验证码错误");
+    TUSER_STATUS("T", "正常"),
+    LOGIN_CHECK_NUMBER_ERROR("0005", "验证码错误"),
+    DATA_IS_NULL("0006", "参数为空"),
+    USER_NOT_EXIT("0007", "用户不存在"),
+    USER_STATUS_ERROR("0008", "用户状态不可用");
     private String code;
 
     private String msg;
