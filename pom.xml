@@ -13,6 +13,8 @@
 		<junit.version>4.10</junit.version>
 		<!-- mybatis版本号 -->
 		<mybatis.version>3.2.1</mybatis.version>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
