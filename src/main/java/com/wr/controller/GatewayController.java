@@ -40,6 +40,7 @@ public class GatewayController {
         ModelAndView mav = new ModelAndView("test");
         User user = userService.selectUserById("1");
         logger.info("user:"+user);
+        user.setUserName("解文歌");
         InetAddress address = null;
         try {
            user.setIp(IpUtil.getLocalIP());
