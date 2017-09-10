@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="41582c83-98a8-4ab8-b4cf-a4982540b764" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/wr/service/UserServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/wr/service/UserServiceTest.java" />
     </list>
     <ignored path="first_maven_project.iws" />
@@ -1395,7 +1394,7 @@
       <workItem from="1504797364409" duration="691000" />
       <workItem from="1504916415231" duration="33646000" />
       <workItem from="1504973547430" duration="6000" />
-      <workItem from="1505007577134" duration="3673000" />
+      <workItem from="1505007577134" duration="3721000" />
     </task>
     <task id="LOCAL-00001" summary="修改为默认的配置">
       <created>1504326410368</created>
@@ -1530,7 +1529,14 @@
       <option name="project" value="LOCAL" />
       <updated>1505019063776</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="中文乱码1">
+      <created>1505020363028</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1505020363028</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1566,7 +1572,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102741000" />
+    <option name="totallyTimeSpent" value="102789000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1680,7 +1686,8 @@
     <MESSAGE value="登录修改密码功能" />
     <MESSAGE value="中文乱码" />
     <MESSAGE value="New changelist" />
-    <option name="LAST_COMMIT_MESSAGE" value="New changelist" />
+    <MESSAGE value="中文乱码1" />
+    <option name="LAST_COMMIT_MESSAGE" value="中文乱码1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
